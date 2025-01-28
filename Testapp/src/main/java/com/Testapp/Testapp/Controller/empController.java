@@ -12,6 +12,8 @@ public class empController {
 
     @Autowired
     Emplservice emplservice;
+     @Autowired
+    EmployeeRepo employeeRepo;
     
     @GetMapping("/home")
     public String home(){
@@ -22,4 +24,8 @@ public class empController {
      public ResponseEntity<Employee>   addnewemp(@RequestBody Employee employee){
      return emplservice.addnewemp(employee);
     }
+     @GetMapping("/getalldata")
+    public List<Employee>   getalldata(){
+        return employeeRepo.findAll();
+       }
 }
